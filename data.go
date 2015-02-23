@@ -1,5 +1,5 @@
 /*
- *  VITacademics-ErrorPages
+ *  VITacademics: Error Pages
  *  Copyright (C) 2015  Aneesh Neelam <neelam.aneesh@gmail.com>
  *
  *  This program is free software: you can redistribute it and/or modify
