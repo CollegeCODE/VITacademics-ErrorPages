@@ -23,6 +23,6 @@ import (
 )
 
 func init() {
-  http.HandleFunc("/maintenance", MaintenanceHandler)
-  http.HandleFunc("/unknown", UnknownHandler)
+	http.HandleFunc("/maintenance", MaintenanceHandler)
+	http.HandleFunc("/unknown", UnknownHandler)
 }

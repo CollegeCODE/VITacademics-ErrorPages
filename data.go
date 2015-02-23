@@ -19,53 +19,53 @@
 package base
 
 import (
-  "fmt"
-  "encoding/json"
+	"encoding/json"
+	"fmt"
 )
 
 type status struct {
-  Message string `json:"message"`
-  Code int `json:"code"`
+	Message string `json:"message"`
+	Code    int    `json:"code"`
 }
 
 type obj struct {
-  Status status `json:"status"`
+	Status status `json:"status"`
 }
 
-func GetStatus (key string) []byte {
+func GetStatus(key string) []byte {
 
-  maintenance := obj{
-    Status: status{
-      Message: "Our backend servers are Down for Maintenance, please contact the VITacademics Developers for more Information",
-      Code: 98,
-    },
-  }
-  unknown := obj{
-    Status: status{
-      Message: "An Unforeseen/Unknown/Irrecoverable Error has Occurred",
-      Code: 99,
-    },
-  }
+	maintenance := obj{
+		Status: status{
+			Message: "Our backend servers are Down for Maintenance, please contact the VITacademics Developers for more Information",
+			Code:    98,
+		},
+	}
+	unknown := obj{
+		Status: status{
+			Message: "An Unforeseen/Unknown/Irrecoverable Error has Occurred",
+			Code:    99,
+		},
+	}
 
-  var response []byte
+	var response []byte
 
-  if key == "unknown" {
-    obj, err := json.Marshal(unknown)
-    if err != nil {
-      fmt.Println(err)
-  		response = nil
-   	} else {
-      response = obj
-    }
-  } else if key == "maintenance" {
-    obj, err := json.Marshal(maintenance)
-    if err != nil {
-      fmt.Println(err)
-  		response = nil
-   	} else {
-      response = obj
-    }
-  }
+	if key == "unknown" {
+		obj, err := json.Marshal(unknown)
+		if err != nil {
+			fmt.Println(err)
+			response = nil
+		} else {
+			response = obj
+		}
+	} else if key == "maintenance" {
+		obj, err := json.Marshal(maintenance)
+		if err != nil {
+			fmt.Println(err)
+			response = nil
+		} else {
+			response = obj
+		}
+	}
 
-  return response
+	return response
 }

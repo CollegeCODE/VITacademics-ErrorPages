@@ -19,14 +19,16 @@
 package base
 
 import (
-  "fmt"
-  "net/http"
+	"fmt"
+	"net/http"
 )
 
 func MaintenanceHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprint(w, string(GetStatus("maintenance")))
 }
 
 func UnknownHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprint(w, string(GetStatus("unknown")))
 }
